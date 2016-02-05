@@ -21,8 +21,8 @@ RUN \
   -e "s:^#\(</\?DirectoryMatch\):\1:" \
   -e "s/^#\(.*Require all \)/\1/i" /etc/apache2/conf-available/security.conf && \
   sed -i -e "s/MaxConnectionsPerChild.*/MaxConnectionsPerChild   150/" /etc/apache2/mods-available/mpm_prefork.conf && \ 
-  sed -i -e "s/Options Indexes/Options/" && \
-  -e "s/^Timeout 300/Timeout 20/" && \
+  sed -i -e "s/Options Indexes/Options/" \
+  -e "s/^Timeout 300/Timeout 20/" \
   -e "s/Indexes FollowSymLinks/FollowSymLinks/"  /etc/apache2/apache2.conf
   
   echo '<FilesMatch "\.(old|kk|bak|sql|~)$">
