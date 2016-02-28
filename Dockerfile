@@ -24,9 +24,6 @@ RUN \
   sed -i -e "s/Options Indexes/Options/" \
   -e "s/^Timeout 300/Timeout 20/" \
   -e "s/Indexes FollowSymLinks/FollowSymLinks/"  /etc/apache2/apache2.conf && \
-# Feel free to fork/add/suggest
-#  rm -rf /usr/share/doc/* && \
-#  rm -rf /usr/share/man/* && \
 COPY strong-security.conf /etc/apache2/conf-available/
 RUN  a2enconf strong-security
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
