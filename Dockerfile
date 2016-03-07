@@ -23,10 +23,9 @@ RUN \
   sed -i -e "s/MaxConnectionsPerChild.*/MaxConnectionsPerChild   150/" /etc/apache2/mods-available/mpm_prefork.conf && \ 
   sed -i -e "s/Options Indexes/Options/" \
   -e "s/^Timeout 300/Timeout 20/" \
-  -e "s/Indexes FollowSymLinks/FollowSymLinks/"  /etc/apache2/apache2.conf && \
+  -e "s/Indexes FollowSymLinks/FollowSymLinks/"  /etc/apache2/apache2.conf
 COPY strong-security.conf /etc/apache2/conf-available/
 RUN  a2enconf strong-security
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ENTRYPOINT ["/usr/bin/supervisord"]
-EXPOSE 80
-
+EXPOSE 80 443
