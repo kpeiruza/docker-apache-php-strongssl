@@ -8,8 +8,8 @@ RUN \
   apt-get -y upgrade && \
   apt-get -y install \
           libapache2-mod-php5 php5-common php5-cli php5-mysql php5-gd php5-mcrypt php5-json php5-curl php5-readline \
-          php5-ldap php5-cgi php5-pgsql php5-sqlite php5-intl php5-imap php5-imagick php5-xsl php5-xmlrpc php-pear && \
-  echo "Yes, do as I say!"  | apt-get --force-yes -y purge gcc-4.8-base e2fsprogs ncurses-bin rename supervisor && \
+          php5-ldap php5-cgi php5-pgsql php5-sqlite php5-intl php5-imap php5-imagick php5-xsl php5-xmlrpc php-pear supervisor && \
+  echo "Yes, do as I say!"  | apt-get --force-yes -y purge gcc-4.8-base e2fsprogs ncurses-bin rename && \
   apt-get clean && apt-get autoclean && \
   rm /var/www/html/index.html && \
   rm -rf /var/lib/apt/lists/* && \
